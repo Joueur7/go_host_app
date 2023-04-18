@@ -1,0 +1,23 @@
+# Use the official Golang image as the parent image
+FROM golang:1.16.4
+
+# Set the current working directory inside the container
+WORKDIR /app
+
+# Copy the Go modules files
+COPY go.mod go.sum ./
+
+# Download the Go modules
+RUN go mod download
+
+# Copy the rest of the application code
+COPY . .
+
+# Build the Go application
+RUN go build -o server cmd/myproject/main.go
+
+# Expose port 8090
+EXPOSE 8090
+
+# Run the Go application
+CMD ["./myproject"]

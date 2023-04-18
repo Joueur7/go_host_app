@@ -1,0 +1,9 @@
+server:
+  localPort: ":9010"
+
+db:
+  user: root
+  password: asd
+  host: 34.131.126.29
+  port: 3306
+  name: sticker_db
