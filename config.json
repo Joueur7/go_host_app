@@ -1,0 +1,14 @@
+{
+    "debug": true,
+    "server": {
+      "localport": ":8091"
+    },
+    "db": {
+        "host": "34.131.126.29",
+        "port": "3306",
+        "user": "root",
+        "password": "asd",
+        "name": "sticker_db"
+    }
+  
+  }
