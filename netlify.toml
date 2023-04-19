@@ -6,6 +6,7 @@
   from = "/config/*"
   to = "/config/:splat"
 
+
 [build]
   command = "go build -o app/main app/main.go"
   publish = "app"
