@@ -10,6 +10,3 @@
   command = "go build -o app/main app/main.go"
   publish = "app"
   functions = "app/functions"
-  # Add the following line to include the config folder
-  # in the published directory
-  publish = "app/config"
