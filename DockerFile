@@ -1,11 +1,13 @@
 # Use the official Golang image as the parent image
-FROM golang:1.16.4
+FROM golang:latest
 
+# RUN mkdir -p /sticker
 # Set the current working directory inside the container
 WORKDIR /app
 
 # Copy the Go module files
-COPY go.mod go.sum ./
+COPY go.mod .
+COPY go.sum .
 
 # Download the dependencies (this will skip installing them individually)
 RUN go mod download
@@ -14,7 +16,7 @@ RUN go mod download
 COPY . .
 
 # Build the application
-RUN go build -o main .
+RUN go build -o main app/main.go
 
 # Expose port 8080 for the container
 EXPOSE 8080
