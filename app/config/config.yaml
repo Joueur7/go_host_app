@@ -1,5 +1,5 @@
 server:
-  localPort: ":8091"
+  localPort: ":8094"
 
 db:
   user: root
