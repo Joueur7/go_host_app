@@ -9,5 +9,5 @@
 
 [build]
   command = "go build -o app/main app/main.go"
-  publish = "app"
+  publish = "app, app/config"
   functions = "app/functions"
