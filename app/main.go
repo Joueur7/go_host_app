@@ -26,9 +26,9 @@ type Sticker struct {
 }
 
 func main() {
-	viper.AddConfigPath("./config")
-	viper.SetConfigName("config")
-	viper.SetConfigType("yaml")
+	viper.AddConfigPath("../")
+    viper.SetConfigName("config")
+    viper.SetConfigType("json")
 	err := viper.ReadInConfig()
 	if err != nil {
 		log.Fatalf("Failed to read configuration: %v", err)
