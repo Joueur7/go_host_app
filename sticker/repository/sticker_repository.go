@@ -1,9 +1,10 @@
 package repository
 
 import (
-    "fmt"
-    "gorm.io/gorm"
     "Project/domain"
+    "fmt"
+
+    "gorm.io/gorm"
 )
 
 // StickerRepository is the interface that describes the methods
@@ -24,15 +25,15 @@ func NewMySQLStickerRepository(db *gorm.DB) *mysqlStickerRepository {
 
 // GetTrendingStickers retrieves the top numStickers trending stickers as of currentTime
 func (r *mysqlStickerRepository) GetTrendingStickers(currentTime string, numStickers int) ([]domain.Sticker, error) {
-        var stickers []domain.Sticker
-        err := r.db.Table("trending_stickers").
-            Where("start_time <= ? AND end_time >= ?", currentTime, currentTime).
-            Order("priority DESC").
-            Limit(numStickers).
-            Find(&stickers).
-            Error
-        if err != nil {
-            return nil, fmt.Errorf("failed to fetch stickers from database: %w", err)
-        }
-        return stickers, nil
+    var stickers []domain.Sticker
+    err := r.db.Table("trending_stickers").
+        Where("start_time <= ? AND end_time >= ?", currentTime, currentTime).
+        Order("priority DESC").
+        Limit(numStickers).
+        Find(&stickers).
+        Error
+    if err != nil {
+        return nil, fmt.Errorf("failed to fetch stickers: %w", err)
     }
+    return stickers, nil
+}
