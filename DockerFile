@@ -19,7 +19,7 @@ COPY . .
 RUN go build -o main app/main.go
 
 # Expose port 8080 for the container
-EXPOSE 8080
+EXPOSE 8091
 
 # Start the application
 CMD ["./main"]
